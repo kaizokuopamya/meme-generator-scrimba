@@ -1,5 +1,6 @@
 import React from "react";
-import { saveAs } from "file-saver";
+import { toPng } from "html-to-image";
+import download from "downloadjs";
 
 export default function Meme() {
   const [meme, setMeme] = React.useState({
@@ -17,14 +18,13 @@ export default function Meme() {
     }
     getMemes();
   }, []);
-  console.log(allMemes)
 
   function getMemeImage() {
     const randomNumber = Math.floor(Math.random() * allMemes.length);
-    const url = allMemes[randomNumber].url
+    const url = allMemes[randomNumber].url;
     setMeme((prevMeme) => ({
       ...prevMeme,
-      randomImage: url
+      randomImage: url,
     }));
   }
 
@@ -36,8 +36,13 @@ export default function Meme() {
     }));
   }
 
+  const node = document.getElementById("meme-img");
   function downloadImage() {
-    saveAs(`${meme.randomImage}`, "Meme.jpg");
+    toPng(node)
+      .then((dataURL) => {
+        download(dataURL, "meme.png");
+      })
+      .catch(() => console.log("error occured"));
   }
 
   return (
@@ -63,7 +68,7 @@ export default function Meme() {
           Get a new meme image 🖼
         </button>
       </div>
-      <div className="meme">
+      <div className="meme" id="meme-img">
         <img
           src={meme.randomImage}
           alt="suppose its a meme image"
@@ -74,7 +79,7 @@ export default function Meme() {
       </div>
       <div className="download--section">
         <button className="download--button" onClick={downloadImage}>
-          Download Meme 🖼
+          Download Meme ⇩
         </button>
       </div>
     </main>

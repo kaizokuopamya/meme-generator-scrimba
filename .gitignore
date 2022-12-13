@@ -1,4 +1,4 @@
-# Logs
+# Log
 logs
 *.log
 npm-debug.log*
@@ -18,7 +18,8 @@ dist-ssr
 .idea
 .DS_Store
 *.suo
-*.ntvs*
+.ntvs
 *.njsproj
 *.sln
 *.sw?
+

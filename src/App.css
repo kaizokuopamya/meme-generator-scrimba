@@ -110,3 +110,9 @@ main {
 .top {
   top: 0;
 }
+
+@media(max-width:420px){
+  .meme--text{
+    font-size: 1.5em;
+  }
+}
