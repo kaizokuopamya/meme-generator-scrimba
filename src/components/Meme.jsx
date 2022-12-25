@@ -1,6 +1,7 @@
 import React from "react";
 import { toPng } from "html-to-image";
 import download from "downloadjs";
+import Draggable from "react-draggable";
 
 export default function Meme() {
   const [meme, setMeme] = React.useState({
@@ -36,6 +37,14 @@ export default function Meme() {
     }));
   }
 
+  function clearInput() {
+    setMeme((prevMeme) => ({
+      ...prevMeme,
+      topText: "",
+      bottomText: "",
+    }));
+  }
+
   const node = document.getElementById("meme-img");
   function downloadImage() {
     toPng(node)
@@ -67,6 +76,9 @@ export default function Meme() {
         <button className="form--button" onClick={getMemeImage}>
           Get a new meme image 🖼
         </button>
+        <button className="form--button" onClick={clearInput}>
+          Clear Text
+        </button>
       </div>
       <div className="meme" id="meme-img">
         <img
@@ -74,8 +86,12 @@ export default function Meme() {
           alt="suppose its a meme image"
           className="meme--image"
         />
-        <h2 className="meme--text top">{meme.topText}</h2>
-        <h2 className="meme--text bottom">{meme.bottomText}</h2>
+        <Draggable>
+          <h2 className="meme--text top">{meme.topText}</h2>
+        </Draggable>
+        <Draggable>
+          <h2 className="meme--text bottom">{meme.bottomText}</h2>
+        </Draggable>
       </div>
       <div className="download--section">
         <button className="download--button" onClick={downloadImage}>

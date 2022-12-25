@@ -51,7 +51,6 @@ main {
 }
 
 .form--button {
-  grid-column: 1 / -1;
   font-family: "Karla", sans-serif;
   border-radius: 5px;
   background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
@@ -89,9 +88,9 @@ main {
   position: absolute;
   width: 80%;
   text-align: center;
-  left: 50%;
   transform: translateX(-50%);
   margin: 15px 0;
+  cursor: auto;
   padding: 0 5px;
   font-family: impact, sans-serif;
   font-size: 2em;
