@@ -59,7 +59,7 @@ main {
   cursor: pointer;
 }
 
-.download--button{
+.download--button {
   cursor: pointer;
   color: white;
   background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
@@ -73,6 +73,8 @@ main {
 }
 
 .meme {
+  width: fit-content;
+  margin: 0 auto;
   position: relative;
   display: flex;
   justify-content: center;
@@ -86,7 +88,6 @@ main {
 
 .meme--text {
   position: absolute;
-  width: 80%;
   text-align: center;
   transform: translateX(-50%);
   margin: 15px 0;
@@ -110,8 +111,8 @@ main {
   top: 0;
 }
 
-@media(max-width:420px){
-  .meme--text{
+@media (max-width: 420px) {
+  .meme--text {
     font-size: 1.5em;
   }
 }

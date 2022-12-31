@@ -86,10 +86,10 @@ export default function Meme() {
           alt="suppose its a meme image"
           className="meme--image"
         />
-        <Draggable>
+        <Draggable bounds="parent">
           <h2 className="meme--text top">{meme.topText}</h2>
         </Draggable>
-        <Draggable>
+        <Draggable bounds="parent">
           <h2 className="meme--text bottom">{meme.bottomText}</h2>
         </Draggable>
       </div>
